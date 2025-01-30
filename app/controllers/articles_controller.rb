@@ -21,6 +21,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+      redirect_to root_path, notice: "記事を削除しました"
+    else
+      flash.now[:danger] = "削除に失敗しました"
+      render 'show'
+    end
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :body)
