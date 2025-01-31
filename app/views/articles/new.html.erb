@@ -1,16 +1,16 @@
-<h1>New Article</h1>
+<h1>記事作成</h1>
 
 <%= form_with model: @article do |form| %>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label "タイトル" %><br>
+    <%= form.text_field :title%>
     <% @article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
+    <%= form.label "本文" %><br>
     <%= form.text_area :body %>
     <% @article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
@@ -18,6 +18,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "投稿する"%>
   </div>
 <% end %>

@@ -1,0 +1,16 @@
+<p>記事の編集</p>
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label "タイトル" %><br>
+    <%= form.text_field :title%>
+  </div>
+
+  <div>
+    <%= form.label "本文" %><br>
+    <%= form.text_field :body %>
+  </div>
+
+  <div>
+    <%= form.submit "内容を更新"%>
+  </div>
+<% end %>
