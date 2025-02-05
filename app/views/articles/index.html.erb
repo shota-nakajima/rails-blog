@@ -1,4 +1,23 @@
-<h1>Ruby on Railsでブログを作成</h1>
+<h1>RoRでブログを作成</h1>
+
+<%= form_tag(root_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "検索", :name => nil %>
+<% end %>
+
+<% if params[:search].present? %>
+  <p>
+    検索ワード：<%= params[:search] %>
+  </p>
+  <p>
+    <% if @articles.any? %>
+      <%= @articles.total_count %>件の記事が見つかりました
+    <% else %>
+      該当する記事は見つかりませんでした
+    <% end %>
+  </p>
+<% end %>
+
 <ul>
   <% @articles.each do |article| %>
     <li>

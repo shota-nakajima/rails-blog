@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all.page(params[:page]).per(5)
+    if params[:search]
+      @articles = Article.search(params[:search]).page(params[:page]).per(5)
+    else
+      @articles = Article.all.page(params[:page]).per(5)
+    end
   end
 
   def show
@@ -39,6 +44,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.update(article_params)
     redirect_to @article
+  end
+
+  def search
+    @articles = Article.search(params[:search])
   end
 
   private
