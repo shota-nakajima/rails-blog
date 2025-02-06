@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # get "/articles/:id", to: "articles#show"
   resources :articles
 
-  delete 'articles/:id', to: 'articles#destroy'
+  resources :users
 end
