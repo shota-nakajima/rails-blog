@@ -25,6 +25,10 @@
   </p>
 <% end %>
 
+<% if logged_in? %>
+  <%= link_to "新規作成", new_article_path %>
+<% end %>
+
 <ul>
   <% @articles.each do |article| %>
     <li>
@@ -34,5 +38,3 @@
 </ul>
 
 <%= paginate @articles %>
-
-<%= link_to "新規作成", new_article_path %>
