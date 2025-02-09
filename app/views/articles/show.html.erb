@@ -2,6 +2,8 @@
 
 <p><%= @article.body %></p>
 
+<p>作成者：<%= @article.user.name %><p/>
+
 <%= link_to "編集", edit_article_path(@article) %>
 
 <%= link_to "削除", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
