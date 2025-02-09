@@ -1,0 +1,27 @@
+<h1>ログイン</h1>
+
+<%= form_with(scope: :session, url: login_path) do |form| %>
+  <div>
+    <%= form.label :email, "メールアドレス" %><br>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password, "パスワード" %><br>
+    <%= form.password_field :password %>
+  </div>
+
+  <% if flash[:error] %>
+    <div>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit "ログイン" %>
+  </div>
+<% end %>
+
+<div class="links">
+  <p>アカウントをお持ちでない方は <%= link_to '新規登録', new_user_path %></p>
+</div>
