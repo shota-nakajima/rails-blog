@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all.page(params[:page]).per(5)
+
+    if params[:search]
+      @articles = Article.search(params[:search]).page(params[:page]).per(5)
+    end
   end
 
   def show
