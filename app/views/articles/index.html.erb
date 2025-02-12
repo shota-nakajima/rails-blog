@@ -13,14 +13,14 @@
   </div>
 </div>
 
-<%= form_tag(root_path, method: "get", class: "search-container") do %>
+<%= form_with(url: root_path, method: "get", class: "search-container") do |form| %>
   <div class="search-wrapper">
-    <%= text_field_tag :search, nil, class: "search-form", placeholder: "記事を検索" %>
+    <%= form.text_field :search, class: "search-form", placeholder: "記事を検索" %>
     <span class="search-icon">
       <%= image_tag "search-icon.png", alt: "検索アイコン" %>
     </span>
   </div>
-  <%= submit_tag "検索", :name => nil, class: "search-button" %>
+  <%= form.submit "検索", class: "search-button" %>
 <% end %>
 
 <% if params[:search].present? %>
