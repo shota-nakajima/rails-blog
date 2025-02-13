@@ -16,9 +16,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(article_params)
-    if @article.save
-      redirect_to @article
+    article = current_user.articles.build(article_params)
+    if article.save
+      redirect_to article
     else
       render :new, status: :unprocessable_entry
     end
