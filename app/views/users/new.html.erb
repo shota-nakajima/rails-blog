@@ -26,6 +26,11 @@
   </div>
 
   <div>
+    <%= form.label "プロフィール画像" %><br>
+    <%= form.file_field :avatar, accept: 'image/jpeg,image/png' %>
+  </div>
+
+  <div>
     <%= form.submit "新規登録"%>
   </div>
 <% end %>

@@ -48,6 +48,12 @@
   padding-top: 2px;
  }
 
+ .avatar-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+ }
+
  .search-container {
   width: 100%;
   margin: 5px auto;
