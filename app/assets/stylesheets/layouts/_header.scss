@@ -7,11 +7,11 @@
   width: 150px;
   display: flex;
   align-items: center;
- }
 
- .header-logo img {
-  border-radius: 15px;
-  width: 150px;
+  img {
+    border-radius: 15px;
+    width: 150px;
+  }
  }
 
  .header-item {
@@ -20,16 +20,16 @@
   align-items: center;
   gap: 8px;
   justify-content: flex-end;
- }
 
- .header-item a {
-  width: 96px;
-  text-align: center;
-  color: #fe6232;
-  border-radius: 20px;
-  border: #fe6232 solid 2px;
-  padding-inline: 5px;
-  padding-top: 2px;
+  a {
+    width: 96px;
+    text-align: center;
+    color: #fe6232;
+    border-radius: 20px;
+    border: #fe6232 solid 2px;
+    padding-inline: 5px;
+    padding-top: 2px;
+  }
  }
 
  .avatar-image {
