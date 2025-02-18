@@ -16,17 +16,17 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = current_user.articles.build(article_params)
-    if article.save
+    @article = current_user.articles.build(article_params)
+    if @article.save
       redirect_to article
     else
-      render :new, status: :unprocessable_entry
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    article = Article.find(params[:id])
-    if article.destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
       redirect_to root_path, notice: "記事を削除しました"
     else
       flash.now[:danger] = "削除に失敗しました"
