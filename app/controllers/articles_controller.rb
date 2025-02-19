@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :ensure_correct_user, only: [:update, :destroy]
   def index
     @articles = Article.all.page(params[:page]).per(5)
 
@@ -47,5 +48,12 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def ensure_correct_user
+    article = Article.find(params[:id])
+    if article.user_id != current_user.id
+      redirect_to article
+    end
   end
 end
