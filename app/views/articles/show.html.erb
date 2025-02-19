@@ -4,8 +4,12 @@
 
 <p>作成者：<%= @article.user.name %><p/>
 
-<%= link_to "編集", edit_article_path(@article) %>
+<% if @article.user_id == current_user.id %>
+  <%= link_to "編集", edit_article_path(@article) %>
+<% end %>
 
-<%= link_to "削除", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+<% if @article.user_id == current_user.id %>
+  <%= link_to "削除", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+<% end %>
 
 <%= link_to "記事一覧", root_path %>
