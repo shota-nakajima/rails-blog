@@ -29,9 +29,10 @@
         <p class="article-excerpt">
           <%= truncate(article.body, length: 30) %>
         </p>
-        <p class="article-author">
-          作成者：<%= article.user.name %>
-        </p>
+        <div class="article-author">
+          <p>作成者：<%= article.user.name %></p>
+          <p><%= render "favorites/btn", article: article %></p>
+        </div>
       </div>
     </div>
   <% end %>
