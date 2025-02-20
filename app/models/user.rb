@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :articles
+  has_many :favorites, dependent: :destroy
   has_secure_password
   has_one_attached :avatar
   validate :acceptable_avatar
