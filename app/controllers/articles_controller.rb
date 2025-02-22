@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :ensure_correct_user, only: [:update, :destroy]
   def index
-    @articles = Article.all.page(params[:page]).per(5)
+    @articles = Article.all.order(created_at: :desc).page(params[:page]).per(5)
 
     if params[:search]
-      @articles = Article.search(params[:search]).page(params[:page]).per(5)
+      @articles = Article.search(params[:search]).order(created_at: :desc).page(params[:page]).per(5)
     end
   end
 
