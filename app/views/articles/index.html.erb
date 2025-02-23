@@ -31,6 +31,7 @@
         </p>
         <div class="article-author">
           <p>作成者：<%= article.user.name %></p>
+          <p><%= article.created_at.strftime("%Y年%m月%d日")%></p>
           <p><%= render "favorites/btn", article: article %></p>
         </div>
       </div>
